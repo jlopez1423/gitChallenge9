@@ -1,0 +1,63 @@
+<!doctype html>
+
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/dojo/1.9.6/dojo/dojo.js" data-dojo-config="async: true">
+	</script>
+</head>
+
+
+<body class="claro">
+
+	<div>  
+		<div dojoType="dijit.layout.TabContainer">    
+		<div dojoType="dijit.layout.ContentPane" title="Our first tab" selected="true">        
+		<div id="showMe">           
+			click here to see how it works        
+		</div>     
+		</div>    
+		<div dojoType="dijit.layout.ContentPane" title="Our second tab">      
+			Lorem ipsum - the second    
+		</div>    
+		<div dojoType="dijit.layout.ContentPane" title="Our last tab" closable="true">    
+			Lorem ipsum - the last...    
+		</div>  
+		</div> 
+	</div>
+</body>
+
+<script type="text/javascript" src="js/dojoToolKit/dojo/dojo.js" djConfig="parseOnLoad: true"></script>    
+<script type="text/javascript">  
+	dojo.require("dijit.layout.TabContainer");  
+	dojo.require("dijit.layout.ContentPane"); 
+</script> 
+
+
+<script type="text/javascript">  
+dojo.addOnLoad(function() {    
+	if (document.pub) { 
+		document.pub(); 
+	}
+
+dojo.query("#showMe").onclick(function(e) {     
+	dojo.xhrGet({        
+		url: "ajax/content1.html",        
+		load: function(result) {          
+			alert("The loaded content is: " + result);        
+			}      
+			});      
+			var node = e.target;      
+			node.innerHTML = "wow, that was easy!";        
+			});  
+	}); 
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
